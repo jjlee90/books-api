@@ -1,4 +1,3 @@
-require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const app = express();
@@ -9,6 +8,10 @@ const mongoose = require("mongoose");
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use(express.json());
+
+require("dotenv").config();
+const PORT = process.env.PORT;
+const MONGO_URI = process.env.MONGO_URI;
 
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
